@@ -1,0 +1,29 @@
+<form [formGroup]="loginForm">
+
+	<div class="input-field" [class.error]="loginForm.controls['username'].dirty && loginForm.hasError('required','username')">
+		<input formControlName="username" type="text" placeholder="UserName">
+		<small *ngIf="loginForm.controls['username'].dirty && loginForm.hasError('required','username')">*UserName is
+			required</small>
+	</div>
+
+
+	<div class="input-field" [class.error]="loginForm.controls['password'].dirty && loginForm.hasError('required','password')">
+		<input formControlName="password" type="text" placeholder="Password">
+		<small *ngIf="loginForm.controls['password'].dirty && loginForm.hasError('required','password')">*Password is
+			required</small>
+	</div>
+
+
+
+
+
+	
+
+	<button (click)="onLogin()" type="submit" class="btn">Login</button>
+	<!-- <button [disabled]="loginForm.invalid" type="submit" class="btn">Login</button> отключение кнопки при пустых полях -->
+
+	<div>Don't have account?
+		<a id="forget" routerLink="/signup">Sign Up</a>
+	</div>
+
+</form>
